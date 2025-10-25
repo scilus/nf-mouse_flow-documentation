@@ -20,10 +20,10 @@ Some `nf-mouse_flow` core functionalities are accessed and selected using profil
 <Steps>
   1. **`-pre_qc`:**
 
-     By selecting this profile, 
+     By selecting this profile, you will run a set of checks and validations steps to insure your images and bvecs are oriented correctly.
 
      :::caution
-     **If you want to use the output of the pre QCed data you must add --use_preqc.
+     **If you want to use the output of the **pre QCed** data you must add --use_preqc. See [parameters section](/nf-mouse_flow/0.1.0/guides/parameters).**
      :::
 
 </Steps>
@@ -54,8 +54,8 @@ Some `nf-mouse_flow` core functionalities are accessed and selected using profil
 
 **Using either `-profile docker` or `-profile apptainer` is highly recommended, as it controls the version of the software used and ensure reproducibility.** While it is technically possible to run the pipeline without Docker or Apptainer, the amount of dependencies to install is simply not worth it.
 
-:::note[Running the pre_qc]
-For example, to perform the pre_qc and apptainer, users should select `-profile pre_qc,apptainer`.
+:::note[Multiple profiles]
+For example, to perform the pre_qc and use apptainer, users should select `-profile pre_qc,apptainer`.
 :::
 
 ### **Typical command-line**
@@ -65,21 +65,19 @@ The typical command for running the pipeline is as follows:
 <Tabs>
   <TabItem label="Command">
     ```bash
-    nextflow run scilus/nf-mouse_flow -r 0.1.0 --input <BIDS_directory> --outdir ./results --use_preqc true -profile docker,pre_qc -resume
+    nextflow run scilus/nf-mouse_flow -r 0.1.0 --input <input_directory> --outdir ./results --use_preqc true -profile docker,pre_qc -resume
     ```
   </TabItem>
 </Tabs>
 
-This will launch the pipeline with the `docker` configuration profile and will run the pre_qc processing steps. There are only 3 parameters that need to be supplied at runtime:
+This will launch the pipeline with the `docker` configuration profile, will run the pre_qc steps and also use the corrected images and bvecs to continue the processing.
+There are only 3 parameters that need to be supplied at runtime:
 
 <Steps>
   1. **`--input`**: for the path to your BIDS directory
 
      For more details on how to organize your input folder, please refer to the [inputs section](/nf-mouse_flow/0.1.0/guides/inputs).
 
-     :::note
-     A single or a subset of participants can be specified using `--participant-label`; this will constrain the pipeline to run only on those specified subjects. The recommended way of supplying those specific subject ids is to use a `params.yml` file. This will reduce the length of the command, and make sure you keep a trace of which subject was processed. For a specific example, please see [this section](#using-the-paramsyml-file).
-     :::
 
   2. **`--outdir`**: path to the output directory
 
@@ -95,7 +93,7 @@ This will launch the pipeline with the `docker` configuration profile and will r
 
   4. **`-resume`**: Enables `nextflow` caching capabilities.
 
-     This is a core `nextflow` arguments. It enables the resumability of your pipeline. In the event where the pipeline fails for a variety of reasons, the following run will start back where it left off. For more details, see the [core `nextflow` arguments section](#core-nextflow-arguments).
+     This is a core `nextflow` arguments. It enables the *resumability* of your pipeline. In the event where the pipeline fails for a variety of reasons, the following run will start back where it left off. For more details, see the [core `nextflow` arguments section](#core-nextflow-arguments).
 </Steps>
 
 :::note
@@ -143,19 +141,8 @@ The above pipeline run specified with a params file in yaml format:
 with:
 
 ```yaml title="params.yaml"
-input: '<BIDS_directory>/'
+input: '<input_directory>/'
 outdir: './results/'
-<...>
-```
-
-To constrict the pipeline execution to specific subjects, you add the `participant_label` to the list:
-
-```yaml title="params_with_subs.yaml"
-input: '<BIDS_directory>/'
-outdir: './results/'
-participant_label:
-  - sub-01
-  - sub-02
 <...>
 ```
 

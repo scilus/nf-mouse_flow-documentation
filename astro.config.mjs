@@ -21,9 +21,9 @@ export default defineConfig({
 				}),
 			],
 			logo: {
-				light: './src/assets/logo_bg.png',
-				dark: './src/assets/logo_bg.png',
-				replacesTitle: true,
+				light: './src/assets/logo_white.png',
+				dark: './src/assets/logo_dark.png',
+				replacesTitle: false,
 			},
 			social: [{ icon: 'github', label: 'nf-mouse_flow', href: 'https://github.com/scilus/nf-mouse_flow' }],
 			sidebar: [
@@ -34,9 +34,9 @@ export default defineConfig({
 						{ label: 'Installation', slug: 'guides/installation' },
 						{ label: 'Inputs', slug: 'guides/inputs' },
 						{ label: 'Running the pipeline', slug: 'guides/usage' },
+						{ label: 'Running with no internet access', slug: 'guides/nointernet' },
 						{ label: "Parameters", slug: 'guides/parameters' },
 						{ label: 'Outputs', slug: 'guides/outputs' },
-						{ label: 'Running with no internet access', slug: 'guides/nointernet' },
 						{ label: 'Frequently Asked Questions', slug: 'guides/faq' },
 					],
 				},

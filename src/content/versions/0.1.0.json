@@ -16,16 +16,16 @@
           "slug": "guides/usage"
         },
         {
+          "label": "Running with no internet access",
+          "slug": "guides/nointernet"
+        },
+        {
           "label": "Parameters",
           "slug": "guides/parameters"
         },
         {
           "label": "Outputs",
           "slug": "guides/outputs"
-        },
-        {
-          "label": "Running with no internet access",
-          "slug": "guides/nointernet"
         },
         {
           "label": "Frequently Asked Questions",

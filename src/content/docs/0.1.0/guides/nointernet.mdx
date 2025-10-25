@@ -130,11 +130,3 @@ Once containers are downloaded, `nextflow` needs to be told where to look for th
 </Tabs>
 
 Now you are good to go! Please refer to the [usage documentation on how to launch the pipeline](/nf-mouse_flow/0.1.0/guides/usage).
-
-### **Downloading TemplateFlow templates**
-
-`nf-mouse_flow` allows users to select a specific output space in which all subject will be registered. Those templates are fetch using the [TemplateFlow Archive](https://www.templateflow.org/) [(Ciric *et al*, 2022)](https://doi.org/10.1038/s41592-022-01681-2). While downloading is directly handled in `nf-mouse_flow` when internet is available, for offline use, the selected template (using the [`--template`](/nf-mouse_flow/0.1.0/guides/parameters#output-to-template-options)) needs to be available. You can refer to the [official TemplateFlow documentation](https://www.templateflow.org/usage/archive/) for information on how to download the archive using either `datalad` or the Python client.
-
-:::note
-Similar to the containers, `nf-mouse_flow` needs to be told where to look for those downloaded templates. This can be done using the [`--templateflow_home`](/nf-mouse_flow/0.1.0/guides/parameters#output-to-template-options) parameters.
-:::

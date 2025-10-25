@@ -3,7 +3,6 @@ title: Pipeline Parameters
 description: nf-mouse_flow parameters
 ---
 
-
 ### **Input/output options**
 
 This section will detail how to set the inputs and outputs of the pipeline.
@@ -110,11 +109,11 @@ Options for DWI preprocessing. You can use these options to customise the behavi
 | `preproc_dwi_run_degibbs` | Run Gibbs ringing correction on the DWI images. | `boolean` | False |  | False |
 | `topup_eddy_run_topup` | Run topup in the susceptibility distortion correction step. | `boolean` | True |  | False |
 | `dwi_susceptibility_config_file` | Path to the susceptibility distortion correction config file. | `string` | b02b0.cnf |  | True |
-| `dwi_susceptibility_output_prefix` | Prefix used in the susceptibility distortion correction step. | `string` | topup_results |  | True |
+| `dwi_susceptibility_output_prefix` | Prefix used in the susceptibility distortion correction step. | `string` | topup\_results |  | True |
 | `dwi_susceptibility_readout` | Readout time used in the susceptibility distortion correction step. | `number` | 0.04 |  | True |
 | `dwi_susceptibility_encoding_dir` | Encoding direction used in the susceptibility distortion correction step. | `string` | y |  | True |
 | `topup_eddy_run_eddy` | Run eddy in the eddy current correction step. | `boolean` | True |  | False |
-| `dwi_motion_and_eddy_command` | Command used in the motion and eddy correction step. | `string` | eddy_cpu |  | True |
+| `dwi_motion_and_eddy_command` | Command used in the motion and eddy correction step. | `string` | eddy\_cpu |  | True |
 | `dwi_motion_and_eddy_bet_f_threshold` | Bet f threshold used in the motion and eddy correction step. | `number` | 0.16 |  | True |
 | `dwi_motion_and_eddy_restore_slices` | Restore slices in the motion and eddy correction step. | `boolean` | True |  | True |
 | `dwi_pwdavg_shells` | Shells used in the PowderAverage step. | `string` |  |  | False |
@@ -232,7 +231,7 @@ Options for BundleSeg
 | `nb_points` | Number of points to segment the bundles. | `integer` | 5 |  | False |
 | `colormap` | Colormap to use for coloring the bundles. Color only affects visualization. | `string` | jet |  | False |
 | `density_weighting` | If set, weight statistics based on the number of voxel going through the voxel. | `boolean` | True |  | False |
-| `normalize_weights` | If set, the weights will be normalized to the [0,1] range. | `boolean` | True |  | False |
+| `normalize_weights` | If set, the weights will be normalized to the \[0,1] range. | `boolean` | True |  | False |
 | `length_stats` | If set, will output bundles' length. | `boolean` | True |  | False |
 | `endpoints_stats` | If set, will output statistics in endpoints. | `boolean` | True |  | False |
 | `means_std` | If set, will output mean and std values per bundle per metrics. | `boolean` | True |  | False |
@@ -248,7 +247,7 @@ Options for transforming labels from anatomical to diffusion space.
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `labels_transform_dimensionality` | Dimensionality of the label file. | `integer` | 3 |  | True |
-| `labels_output_suffix` | Name to use as suffix in the output filename. | `string` | _labels |  | True |
+| `labels_output_suffix` | Name to use as suffix in the output filename. | `string` | \_labels |  | True |
 | `labels_interpolation` | Interpolation method used in the label transformation step. Choices: NearestNeighbor, Linear, or BSpline. | `string` | NearestNeighbor |  | True |
 | `labels_output_dtype` | Output data type used in the label transformation step. Choices: float or int. | `string` | int |  | True |
 
@@ -345,4 +344,4 @@ Less common options for the pipeline, typically set in a config file.
 | `multiqc_methods_description` | Custom MultiQC yaml file containing HTML including a methods description. | `string` |  |  |  |
 | `validate_params` | Boolean whether to validate parameters against the schema at runtime | `boolean` | True |  | True |
 | `pipelines_testdata_base_path` | Base URL or local path to location of pipeline test dataset files | `string` | None |  | True |
-| `trace_report_suffix` | Suffix to add to the trace report filename. Default is the date and time in the format yyyy-MM-dd_HH-mm-ss. | `string` |  |  | True |
+| `trace_report_suffix` | Suffix to add to the trace report filename. Default is the date and time in the format yyyy-MM-dd\_HH-mm-ss. | `string` |  |  | True |
