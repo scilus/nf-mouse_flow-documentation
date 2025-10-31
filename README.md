@@ -1,4 +1,4 @@
-# nf-mouse_flow Documentation
+# nf-mouse Documentation
 
 ## 🚀 Project Structure
 
