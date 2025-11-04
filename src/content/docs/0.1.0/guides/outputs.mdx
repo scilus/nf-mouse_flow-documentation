@@ -34,7 +34,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and data proces
 In addition to the output files described below, you will also find **sidecar JSON file** for nifti volumes. Those will contain informations regarding their source (either raw or processed), the applied transforms, and/or processing steps.
 :::
 
-* [pre_qc](#pre_qc-preprocessing) - Preprocess anatomical images (denoising, normalization, etc.)
+// * [pre_qc](#pre_qc-preprocessing) - Preprocess anatomical images (denoising, normalization, etc.)
 * [DWI Preprocessing](#dwi-preprocessing) - Preprocess DWI images (denoising, susceptibility correction, normalization, etc.)
 * [Local Modelling](#local-modelling) - Fit DTI and fODF models based on the diffusion signal.
 * [Registration](#registration) - Register the T1w/T2w images in diffusion space.
@@ -42,24 +42,25 @@ In addition to the output files described below, you will also find **sidecar JS
 * [Tractography](#tractography) - Perform either local or PFT tracking.er and map the Brainnetome Child atlas in subject space.
 * [MultiQC](#multiqc) - Gather run informations, provide methods boilerplate and software versions list.
 * [Pipeline information](#pipeline-information) - Report metrics generated during the workflow execution
-
+/*
 ### **pre_qc Preprocessing**
 
 <details markdown="1">
   <summary>Output files</summary>
 
   * `anat/`
-    * `*_desc-preproc_T1w.nii.gz`: Final preprocessed T1w image in original space.
-    * `*_desc-preproc_T2w.nii.gz`: Final preprocessed T2w image in original space.
-    * `*_space-T2w_desc-preproc_T1w.nii.gz`: Final preprocessed T1w image in T2w space (if infant data).
-    * `*_space-T1w_desc-preproc_T2w.nii.gz`: Final preprocessed T2w image in T1w space (if pediatric data).
-    * `*_from-{T1w,T2w}_to-{T1w,T2w}_affine.mat`: Affine transform from T1w/T2w to T1w/T2w space.
-    * `*_space-{template}_desc-preproc_T1w.nii.gz`: Final preprocessed T1w image in template space (if a destination template has been selected).
+    * `mask/`: Folder containing all the masks extracted from the Allen Mouse Brain Atlas determinated in the nextflow.config, along with a .csv file.
+    * `*_desc-preproc_AMBAref.nii.gz`: Allen Mouse Brain Atlas in the native space.
+    * `*_desc-preproc_ANO.nii.gz`: Allen Mouse Brain Atlas segmented in the native space.
+    * `*_desc-preproc_ANO_LR.nii.gz`: Allen Mouse Brain Atlas segmented splitted left/right in the native space.
+    * `*_desc-preproc_mask.nii.gz`: Final brain mask in original space.
+    * `*_desc-preproc_seeding_mask.nii.gz`: Seeding mask for local tracking.
+    * `*_desc-preproc_tracking_mask.nii.gz`: Final preprocessed T1w image in template space (if a destination template has been selected).
     * `*_space-{template}_desc-preproc_T2w.nii.gz`: Final preprocessed T2w image in template space (if a destination template has been selected).
     * `*_from-dwi_to-{template}_affine.mat`: Affine transform from T1w/T2w to template space.
     * `*_from-dwi_to-{template}_warp.nii.gz`: Non-linear transform from T1w/T2w to template space.
 </details>
-
+*/
 ### **DWI Preprocessing**
 
 <details markdown="1">
@@ -69,8 +70,8 @@ In addition to the output files described below, you will also find **sidecar JS
     * `*_desc-preproc_dwi.nii.gz`: Final preprocessed DWI image in original space.
     * `*_desc-preproc_dwi.bval`: Final b-values file.
     * `*_desc-preproc_dwi.bvec`: Final corrected b-vectors file.
-    * `*_desc-preproc_b0.nii.gz`: Final preprocessed B0 image.
-    * `*_desc-brain_mask.nii.gz`: Final brain mask in original space.
+  * `anat/`
+    * `*_desc-preproc_mask.nii.gz`: Final brain mask in original space.
 </details>
 
 ### **Local Modelling**
@@ -79,20 +80,22 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `dwi/`
-    * `*_{space-template}_desc-ad.nii.gz`: Axial Diffusivity map.
-    * `*_{space-template}_desc-rd.nii.gz`: Radial Diffusivity map.
-    * `*_{space-template}_desc-md.nii.gz`: Mean Diffusivity map.
-    * `*_{space-template}_desc-fa.nii.gz`: Fractional Anisotropy map.
-    * `*_{space-template}_desc-mode.nii.gz`: Mode map.
-    * `*_{space-template}_desc-ga.nii.gz`: Geodesic Anisometry map.
-    * `*_desc-tensor.nii.gz`: Tensor map.
-    * `*_{space-template}_desc-rgb.nii.gz`: RGB map.
-    * `*_desc-fodf.nii.gz`: Fiber oriented distribution functions (fODF).
-    * `*_{space-template}_desc-afd_max.nii.gz`: Maximum apparent fiber density (AFD) map.
-    * `*_{space-template}_desc-afd_sum.nii.gz`: Sum of the AFD map.
-    * `*_{space-template}_desc-afd_total.nii.gz`: AFD total map.
-    * `*_{space-template}_desc-nufo.nii.gz`: Number of fiber orientation map.
-    * `*_desc-peaks.nii.gz`: fODF peaks.
+    * `*_ad.nii.gz`: Axial Diffusivity map.
+    * `*_apower.nii.gz`: Anisotropic power map.
+    * `*_fa.nii.gz`: Fractional Anisotropy map.
+    * `*_ga.nii.gz`: Geodesic Anisometry map.
+    * `*_gfa.nii.gz`: Generalized fractional anisotropy map.
+    * `*_md.nii.gz`: Mean Diffusivity map.
+    * `*_mode.nii.gz`: Mode map.
+    * `*_qball.nii.gz`: Spherical harmonics coefficients.
+    * `*_rd.nii.gz`: Radial Diffusivity map.
+    * `*_rgb.nii.gz`: RGB map.
+    * `*_tensor.nii.gz`: Tensor map.
+    /* `*_afd_max.nii.gz`: Maximum apparent fiber density (AFD) map.
+    /* `*_afd_sum.nii.gz`: Sum of the AFD map.
+    /* `*_afd_total.nii.gz`: AFD total map.
+    /* `*_nufo.nii.gz`: Number of fiber orientation map.
+    /* `*_peaks.nii.gz`: fODF peaks.
 </details>
 
 ### **Registration**
@@ -101,10 +104,9 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `anat/`
-    * `*_from-{T2w,T1w}_to-dwi_affine.mat`: Affine transform from T1w/T2w space to diffusion space.
-    * `*_from-{T2w,T1w}_to-dwi_warp.nii.gz`: Non-linear transform from T1w/T2w space to diffusion space.
-    * `*_from-dwi_to-{T2w,T1w}_warp.nii.gz`: Non-linear transform from diffusion space to T1w/T2w space.
-    * `*_space-DWI_desc-preproc_{T2w,T1w}.nii.gz`: Preprocessed T1w/T2w image in diffusion space.
+    * `*_from-dwi_to-template_warp.nii.gz`: Non-linear transform from diffusion space to Allen Mouse Brain Atlas space.
+    * `*_from-template_to-dwi_affine.mat`: Affine transform from Allen Mouse Brain Atlas space space to diffusion space.
+    * `*_from-template_to-dwi_warp.nii.gz`: Non-linear transform from Allen Mouse Brain Atlas space to diffusion space.
 </details>
 
 ### **Segmentation**
@@ -113,12 +115,10 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `anat/`
-    * `*_space-DWI_label-WM_mask.nii.gz`: WM mask in diffusion space.
-    * `*_space-DWI_label-GM_mask.nii.gz`: GM mask in diffusion space.
-    * `*_space-DWI_label-CSF_mask.nii.gz`: CSF mask in diffusion space.
-    * `*_space-DWI_label-WM_probseg.nii.gz`: WM probability map in diffusion space.
-    * `*_space-DWI_label-GM_probseg.nii.gz`: GM probability map in diffusion space.
-    * `*_space-DWI_label-CSF_probseg.nii.gz`: CSF probability map in diffusion space.
+    * `mask/`: Folder containing all the masks extracted from the Allen Mouse Brain Atlas determinated in the nextflow.config in diffusion space, along with a .csv file.
+    * `*_desc-preproc_AMBAref.nii.gz`: Allen Mouse Brain Atlas in the native space.
+    * `*_desc-preproc_ANO.nii.gz`: Allen Mouse Brain Atlas segmented in the native space.
+    * `*_desc-preproc_ANO_LR.nii.gz`: Allen Mouse Brain Atlas segmented splitted left/right in the native space.
 </details>
 
 ### **Tractography**
@@ -126,15 +126,11 @@ In addition to the output files described below, you will also find **sidecar JS
 <details markdown="1">
   <summary>Output files</summary>
 
+  * `anat/`
+    * `*_desc-seeding_mask.nii.gz`: Seeding mask for local tracking.
+    * `*_desc-tracking_mask.nii.gz`: Tracking mask for local tracking.
   * `dwi/`
-    * `*_{space-template}_desc-local_tractogram.trk`: Whole-brain tractogram using local tractography.
-    * `*_{space-template}_desc-pft_tractogram.trk`: Whole-brain tractogram using PFT tractography.
-    * `*_{space-template}_desc-concatenated_tractogram.trk`: Whole-brain tractogram combining both PFT/local tracking.
-    * `*_space-DWI_label-exclude_desc-pft_probseg.nii.gz`: Exclude probability map for PFT tracking.
-    * `*_space-DWI_label-include_desc-pft_probseg.nii.gz`: Include probability map for PFT tracking.
-    * `*_space-DWI_label-seeding_desc-local_mask.nii.gz`: Seeding mask for local tracking.
-    * `*_space-DWI_label-tracking_desc-local_mask.nii.gz`: Tracking mask for local tracking.
-    * `*_space-DWI_label-seeding_desc-pft_mask.nii.gz`: Seeding mask for PFT tracking.
+    * `*_desc-local_tracking.trk`: Whole-brain tractogram using local tractography.
 </details>
 
 ### **MultiQC**
@@ -144,13 +140,20 @@ In addition to the output files described below, you will also find **sidecar JS
 
   * `multiqc/`
     * `multiqc_report.html`: a standalone HTML file that can be viewed in your web browser.
-    * `multiqc_data/`: directory containing parsed statistics from the different tools used in the pipeline.
-    * `multiqc_plots/`: directory containing static images from the report in various formats.
 </details>
 
 [MultiQC](http://multiqc.info) is a visualization tool that generates HTML reports on the subject-level and reports on population-level statistics. In your output folder, you will find a global MultiQC report (located next to your `sub-XXXX` folders). This is the population level report, containing statistics allowing the evaluation of outliers in terms of white matter coverage, number of streamlines, and volume, thickness, and surface area for each regions of the GM parcellation.
 
 Within each subject folder, you will find subject-specific HTML reports. Those will display visual QC of some of the key processing steps performed during the pipeline execution. Those figures (for now) comprise: sphere sampling, tissue segmentation, white matter coverage, labels overlay on anatomical image, and metrics maps visualization. You can refer to those subject-specific reports to obtain a quick overview of the quality of the processing.
+
+### **Stats**
+
+<details markdown="1">
+  <summary>Output files</summary>
+
+  * `stats/`
+    * `*__stats.json`: Mean and SD for AD, FA, MD and RD for each regions determinated in the nextflow.config
+</details>
 
 ### **Pipeline information**
 
