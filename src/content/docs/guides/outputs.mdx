@@ -1,7 +1,6 @@
 ---
 title: Outputs
 description: nf-mouse outputs
-slug: 0.1.0/guides/outputs
 ---
 
 import { FileTree } from '@astrojs/starlight/components';
@@ -56,11 +55,8 @@ In addition to the output files described below, you will also find **sidecar JS
     * `*_desc-preproc_mask.nii.gz`: Final brain mask in original space.
     * `*_desc-preproc_seeding_mask.nii.gz`: Seeding mask for local tracking.
     * `*_desc-preproc_tracking_mask.nii.gz`: Final preprocessed T1w image in template space (if a destination template has been selected).
-    * `*_space-{template}_desc-preproc_T2w.nii.gz`: Final preprocessed T2w image in template space (if a destination template has been selected).
-    * `*_from-dwi_to-{template}_affine.mat`: Affine transform from T1w/T2w to template space.
-    * `*_from-dwi_to-{template}_warp.nii.gz`: Non-linear transform from T1w/T2w to template space.
 </details>
-*/
+
 ### **DWI Preprocessing**
 
 <details markdown="1">
@@ -91,11 +87,11 @@ In addition to the output files described below, you will also find **sidecar JS
     * `*_rd.nii.gz`: Radial Diffusivity map.
     * `*_rgb.nii.gz`: RGB map.
     * `*_tensor.nii.gz`: Tensor map.
-    /* `*_afd_max.nii.gz`: Maximum apparent fiber density (AFD) map.
-    /* `*_afd_sum.nii.gz`: Sum of the AFD map.
-    /* `*_afd_total.nii.gz`: AFD total map.
-    /* `*_nufo.nii.gz`: Number of fiber orientation map.
-    /* `*_peaks.nii.gz`: fODF peaks.
+    * `*_afd_max.nii.gz`: Maximum apparent fiber density (AFD) map.
+    * `*_afd_sum.nii.gz`: Sum of the AFD map.
+    * `*_afd_total.nii.gz`: AFD total map.
+    * `*_nufo.nii.gz`: Number of fiber orientation map.
+    * `*_peaks.nii.gz`: fODF peaks.
 </details>
 
 ### **Registration**
