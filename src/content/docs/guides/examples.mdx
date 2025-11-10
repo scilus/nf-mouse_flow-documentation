@@ -1,0 +1,20 @@
+---
+title: Examples
+description: Examples
+---
+
+import ListOptions from '../../../components/ListOptions.astro';
+
+### **Liste of modulated options**
+
+By default, all steps will be executed. If you wish to disable some steps, you can select them. The options essential for the proper functioning of nf-mouse cannot be disabled. Note that nf-mouse was developed taking all options into account; disabling certain options may alter some results.
+
+<ListOptions
+  items={[
+    { id: 'denoising', label: 'Denoising' },
+    { id: 'eddy current', label: 'Eddy Current' },
+    { id: 'N4 correction', label: 'N4 correction' },
+    { id: 'Resampling', label: 'Resampling' },
+    { id: 'Tracking', label: "Tracking" },
+  ]}
+/>

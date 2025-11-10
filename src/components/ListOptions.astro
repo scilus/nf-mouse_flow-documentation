@@ -1,0 +1,101 @@
+---
+const { items = [] } = Astro.props;
+---
+
+<div class="options-wrapper">
+  <div class="options-list">
+      <h5> Select which step you want deactivate </h5>
+        <ul>
+        {items.map((item) => (
+            <li>
+            <label>
+                <input type="checkbox" value={item.id} />
+                {item.label}
+            </label>
+            </li>
+        ))}
+        </ul>
+    </div>
+
+    <div id="summary" class="summary-box">
+        <p>
+        <code id="base-command">
+            nextflow run scilus/nf-mouse -r main --input INPUT --outdir ./results --use_preqc true -profile docker,pre_qc -resume
+        </code>
+        </p>
+  </div>
+</div>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.options-list input[type="checkbox"]');
+    const summary = document.getElementById('summary');
+    const baseCommandEl = document.getElementById('base-command');
+
+    // Dictionnaire ID -> option CLI
+    const commandMap = {
+      denoising: '--run_denoising false',
+      'eddy current': '--run_eddy false',
+      'N4 correction': '--run_n4 false',
+      'Resampling': '--run_resampling false',
+      Tracking: '--run_tracking false',
+    };
+
+    function updateSummary() {
+      const selected = Array.from(checkboxes)
+        .filter((el) => el.checked)
+        .map((el) => el.value);
+
+      const extra = selected.map((id) => commandMap[id]).filter(Boolean);
+      const fullCommand = [
+        baseCommandEl.textContent.trim(),
+        ...extra
+      ].join(' ');
+
+        summary.innerHTML = `
+        <h5><strong>The executable command:</strong></h5>
+        <pre><code>${fullCommand}</code></pre>
+        `;
+    }
+    const saved = JSON.parse(localStorage.getItem('selectedOptions') || '[]');
+    checkboxes.forEach((el) => {
+      if (saved.includes(el.value)) el.checked = true;
+      el.addEventListener('change', () => {
+        const selected = Array.from(checkboxes)
+          .filter((el) => el.checked)
+          .map((el) => el.value);
+        localStorage.setItem('selectedOptions', JSON.stringify(selected));
+        updateSummary();
+      });
+    });
+
+    updateSummary();
+  });
+</script>
+
+<style>
+  .options-list {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+
+  .summary-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff;
+  }
+
+  ul { list-style: none; padding: 0; }
+  li { margin: 0.3rem 0; }
+
+  code {
+    background: #eee;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+</style>

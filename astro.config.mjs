@@ -38,6 +38,7 @@ export default defineConfig({
 						{ label: "Parameters", slug: 'guides/parameters' },
 						{ label: 'Outputs', slug: 'guides/outputs' },
 						{ label: 'Frequently Asked Questions', slug: 'guides/faq' },
+						{ label: 'Example', slug: 'guides/examples' },
 					],
 				},
 				{
