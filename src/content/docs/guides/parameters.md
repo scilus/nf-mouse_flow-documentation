@@ -7,6 +7,8 @@ description: nf-mouse parameters
 
 This section will detail how to set the inputs and outputs of the pipeline.
 
+<div class="param-table">
+
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `input` | Path to the BIDS directory location. <details><summary>Help</summary><small>Ensure the BIDS data structure is respected. For more information, see the [documentation](https://scilus.github.io/nf-mouse/guides/inputs/)</small></details>| `string` |  |  |  |
@@ -16,43 +18,61 @@ This section will detail how to set the inputs and outputs of the pipeline.
 | `email` | Email address for completion summary. <details><summary>Help</summary><small>Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.</small></details>| `string` |  |  |  |
 | `-with-report` | MultiQC report title for subject report. Printed as page header, used for filename if not otherwise specified. | `string` |  |  |  |
 
+</div>
 
 ### **Eddy Current Options**
 
 Options for FreeSurfer, FastSurfer, and/or M-CRIB-S processing. Only relevant if you select the segmentation profile.
 
+<div class="param-table">
+
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `processes` | Number of iteration used for Eddy current | `number` | 10 |  | False |
+
+</div>
 
 ### **DTI Options**
 
 Options for diffusion tensor fitting.
 
+<div class="param-table">
+
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `dti_max_shell_value` | Maximum shell value used in the DTI processing step. | `integer` | 3500 |  | True |
+
+</div>
 
 ### **FRF Options**
 
 Options for fiber response function (FRF) processing. The FRF is derived from normative curves in function of each participant's age. The current options are mostly if you want to override this default behavior.
 
+<div class="param-table">
+
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `nvox_min` | Minimum number of voxels to include in the computation of the FRF. | `integer` | 100 |  | True |
+
+</div>
 
 ### **FODF Options**
 
 Options for FODF processing.
 
+<div class="param-table">
+
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | `fodf_sh_order` | Spherical harmonics order used in the FODF processing step. | `integer` | 6 |  | False |
 
+</div>
 
 ### **Local Tracking Options**
 
 Options for local tracking.
+
+<div class="param-table">
 
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
@@ -63,9 +83,13 @@ Options for local tracking.
 | `local_min_len` | Minimum length used in the local tracking step. | `number` | 3 |  | False |
 | `local_max_len` | Maximum length used in the local tracking step. | `number` | 12 |  | False |
 
+</div>
+
 ### **Pipeline profile**
 
 Pipeline profile options. This is a short list of options. For full description, please see [the documentation](https://scilus.github.io/nf-mouse/guides/usage/#choosing-a-profile)
+
+<div class="param-table">
 
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
@@ -74,9 +98,13 @@ Pipeline profile options. This is a short list of options. For full description,
 | `connectomics` | Perform connectomics profile. | `boolean` | False |  | True |
 | `segmentation` | Perform segmentation profile. | `boolean` | False |  | True |
 
+</div>
+
 ### **Institutional config options**
 
 Parameters used to describe centralised config profiles. These should not be edited.
+
+<div class="param-table">
 
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
@@ -87,9 +115,13 @@ Parameters used to describe centralised config profiles. These should not be edi
 | `config_profile_contact` | Institutional config contact information. | `string` |  |  | True |
 | `config_profile_url` | Institutional config URL link. | `string` |  |  | True |
 
+</div>
+
 ### **Generic options**
 
 Less common options for the pipeline, typically set in a config file.
+
+<div class="param-table">
 
 | Parameter | Description | Type | Default | Required | Hidden |
 |-----------|-----------|-----------|-----------|-----------|-----------|
@@ -107,3 +139,5 @@ Less common options for the pipeline, typically set in a config file.
 | `validate_params` | Boolean whether to validate parameters against the schema at runtime | `boolean` | True |  | True |
 | `pipelines_testdata_base_path` | Base URL or local path to location of pipeline test dataset files | `string` | None |  | True |
 | `trace_report_suffix` | Suffix to add to the trace report filename. Default is the date and time in the format yyyy-MM-dd\_HH-mm-ss. | `string` |  |  | True |
+
+</div>

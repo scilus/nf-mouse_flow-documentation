@@ -21,6 +21,30 @@
     --color-gray-900: #141a14;
 }
 
+.param-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+param-table th, .param-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd
+}
+
+.param-table th:nth-child(1), 
+.param-table td:nth-child(1) {
+  width: 25%;
+}
+
+.param-table th:nth-child(2), 
+.param-table td:nth-child(2) {
+  width: 45%;
+}
+
+.param-table th:nth-child(1), 
+.param-table td:nth-child(1) {
+  width: 15%;
+}
 .centered {
   text-align: center;
 }
