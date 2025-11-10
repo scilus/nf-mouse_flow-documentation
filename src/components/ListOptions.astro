@@ -20,7 +20,7 @@ const { items = [] } = Astro.props;
     <div id="summary" class="summary-box">
         <p>
         <code id="base-command">
-            nextflow run scilus/nf-mouse -r 0.1.0 --input &lt;input_directory&gt; --outdir ./results --use_preqc true -profile docker,pre_qc -resume
+            nextflow run scilus/nf-mouse -r main --input INPUT --outdir ./results --use_preqc true -profile docker,pre_qc -resume
         </code>
         </p>
   </div>
@@ -52,10 +52,10 @@ const { items = [] } = Astro.props;
         ...extra
       ].join(' ');
 
-      summary.innerHTML = `
-        <p><strong>Example of an executable command:</strong></p>
-        <code>${fullCommand}</code>
-      `;
+        summary.innerHTML = `
+        <h5><strong>The executable command:</strong></h5>
+        <pre><code>${fullCommand}</code></pre>
+        `;
     }
     const saved = JSON.parse(localStorage.getItem('selectedOptions') || '[]');
     checkboxes.forEach((el) => {
