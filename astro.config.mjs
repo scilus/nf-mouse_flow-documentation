@@ -31,7 +31,7 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'How to run the pipeline?', slug: 'guides/installation' },
+						{ label: 'Installation', slug: 'guides/installation' },
 						{ label: 'Inputs', slug: 'guides/inputs' },
 						{ label: 'Running the pipeline', slug: 'guides/usage' },
 						{ label: 'Running with no internet access', slug: 'guides/nointernet' },
