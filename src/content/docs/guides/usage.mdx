@@ -8,7 +8,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { FileTree } from '@astrojs/starlight/components';
 import { Steps } from '@astrojs/starlight/components';
 
-![nf-mouse pipeline schema](../../../assets/0.1.0/nf-mouse-schema.png)
+![nf-mouse pipeline schema](../../../assets/nf-mouse-schema.png)
 
 ### **Choosing a profile**
 
@@ -22,7 +22,7 @@ Some `nf-mouse` core functionalities are accessed and selected using profiles an
      By selecting this profile, you will run a set of checks and validations steps to insure your images and bvecs are oriented correctly.
 
      :::caution
-     **If you want to use the output of the **pre QC** data you must add --use_preqc. See [parameters section](/nf-mouse/0.1.0/guides/parameters).**
+     **If you want to use the output of the **pre QC** data you must add --use_preqc. See [parameters section](/nf-mouse/guides/parameters).**
      :::
 
 </Steps>
@@ -75,7 +75,7 @@ There are only 3 parameters that need to be supplied at runtime:
 <Steps>
   1. **`--input`**: for the path to your BIDS directory
 
-     For more details on how to organize your input folder, please refer to the [inputs section](/nf-mouse/0.1.0/guides/inputs).
+     For more details on how to organize your input folder, please refer to the [inputs section](/nf-mouse/guides/inputs).
 
 
   2. **`--outdir`**: path to the output directory
@@ -100,18 +100,18 @@ There are only 3 parameters that need to be supplied at runtime:
      This is a core `nextflow` arguments. It enables the  *html report* of your pipeline. For more details, see the [core `nextflow` arguments section](#core-nextflow-arguments).
 </Steps>
 :::note
-More parameters can be tuned to your own usage, for a concise list of the most common parameters, you can run `nextflow run scilus/nf-mouse -r 0.1.0 --help`. Otherwise, for the complete list of parameters, please refer to the [parameters section](/nf-mouse/0.1.0/guides/parameters) of the documentation.
+More parameters can be tuned to your own usage, for a concise list of the most common parameters, you can run `nextflow run scilus/nf-mouse -r main --help`. Otherwise, for the complete list of parameters, please refer to the [parameters section](/nf-mouse/guides/parameters) of the documentation.
 :::
 
 :::caution[Running the pipeline in offline mode]
-If the computer nodes you are planning to use do not have access to the internet, there is a few steps to go through to make sure the containers and templates are available during pipeline execution. Please head over to [running with no internet access section](/nf-mouse/0.1.0/guides/nointernet).
+If the computer nodes you are planning to use do not have access to the internet, there is a few steps to go through to make sure the containers and templates are available during pipeline execution. Please head over to [running with no internet access section](/nf-mouse/guides/nointernet).
 :::
 
 Note that the pipeline will create the following files in your working directory:
 
 <FileTree>
   * work/                           # Directory containing the nextflow working files
-  * nf-mouse-v0.1.0/            # Finished results in specified location (defined with --outdir)
+  * nf-mouse/            # Finished results in specified location (defined with --outdir)
     * sub-01
         * anat/
         * dwi/
@@ -136,7 +136,7 @@ The above pipeline run specified with a params file in yaml format:
 <Tabs>
   <TabItem label="Command">
     ```bash
-    nextflow run scilus/nf-mouse -r 0.1.0 -profile docker -params-file params.yaml
+    nextflow run scilus/nf-mouse -r main -profile docker -params-file params.yaml
     ```
   </TabItem>
 </Tabs>
