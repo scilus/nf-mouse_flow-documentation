@@ -14,41 +14,41 @@ The directories listed below will be created in the results directory after the 
     * sub-01/
       * anat/
         * sub-01_masks/
-        * `*_atlas-Allen_2PE.nii.gz`
-        * `*_atlas-Allen_desc-ANO_dseg.nii.gz`
-        * `*_atlas-Allen_desc-ANOLR_dseg.nii.gz`
-        * `*_desc-seeding_mask.nii.gz`
-        * `*_desc-tracking_mask.nii.gz`
-        * `*_from-dwi_to-Allen_warp.nii.gz`
-        * `*_from-Allen_to-dwi_affine.mat`
-        * `*_from-Allen_to-dwi_warp.nii.gz`
+        * `sub-01_atlas-Allen_2PE.nii.gz`
+        * `sub-01_atlas-Allen_desc-ANO_dseg.nii.gz`
+        * `sub-01_atlas-Allen_desc-ANOLR_dseg.nii.gz`
+        * `sub-01_desc-seeding_mask.nii.gz`
+        * `sub-01_desc-tracking_mask.nii.gz`
+        * `sub-01_from-dwi_to-Allen_warp.nii.gz`
+        * `sub-01_from-Allen_to-dwi_affine.mat`
+        * `sub-01_from-Allen_to-dwi_warp.nii.gz`
       * dwi/
-        * `*_model-csd_param-afd-max_dwimap.nii.gz`
-        * `*_model-csd_param-afd-sum_dwimap.nii.gz`
-        * `*_model-csd_param-afd-tot_dwimap.nii.gz`
-        * `*_model-csd_param-nufo_dwimap.nii.gz`
-        * `*_model-csd_param-peaks_dwimap.nii.gz`
-        * `*_model-csd_param-sh_dwimap.nii.gz`
-        * `*_desc-local_tracking.trk`
-        * `*_desc-preproc_dwi.nii.gz`
-        * `*_desc-preproc_dwi.bval`
-        * `*_desc-preproc_dwi.bvec`
-        * `*_model-qball_param-apower_dwimap.nii.gz`
-        * `*_model-qball_param-gfa_dwimap.nii.gz`
-        * `*_model-qball_param-qball_dwimap.nii.gz`
-        * `*_model-tensor_param-ad_dwimap.nii.gz`
-        * `*_model-tensor_param-fa_dwimap.nii.gz`
-        * `*_model-tensor_param-ga_dwimap.nii.gz`
-        * `*_model-tensor_param-md_dwimap.nii.gz`
-        * `*_model-tensor_param-mode_dwimap.nii.gz`
-        * `*_model-tensor_param-rd_dwimap.nii.gz`
-        * `*_model-tensor_param-rgb_dwimap.nii.gz`
-        * `*_model-tensor_param-tensor_dwimap.nii.gz`
-        * `*_mqc.png`
+        * `sub-01_model-csd_param-afd-max_dwimap.nii.gz`
+        * `sub-01_model-csd_param-afd-sum_dwimap.nii.gz`
+        * `sub-01_model-csd_param-afd-tot_dwimap.nii.gz`
+        * `sub-01_model-csd_param-nufo_dwimap.nii.gz`
+        * `sub-01_model-csd_param-peaks_dwimap.nii.gz`
+        * `sub-01_model-csd_param-sh_dwimap.nii.gz`
+        * `sub-01_desc-local_tracking.trk`
+        * `sub-01_desc-preproc_dwi.nii.gz`
+        * `sub-01_desc-preproc_dwi.bval`
+        * `sub-01_desc-preproc_dwi.bvec`
+        * `sub-01_model-qball_param-apower_dwimap.nii.gz`
+        * `sub-01_model-qball_param-gfa_dwimap.nii.gz`
+        * `sub-01_model-qball_param-qball_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-ad_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-fa_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-ga_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-md_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-mode_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-rd_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-rgb_dwimap.nii.gz`
+        * `sub-01_model-tensor_param-tensor_dwimap.nii.gz`
+        * `sub-01_mqc.png`
       * stats/
-        * `*_stats.json`
+        * `sub-01_stats.json`
       * report/
-        * `*_multiqc_report.html`
+        * `sub-01_multiqc_report.html`
     * sub-02/
       * anat/
       * dwi/
@@ -93,11 +93,11 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `dwi/`
-    * `*_desc-preproc_dwi.nii.gz`: Final preprocessed DWI image in original space.
-    * `*_desc-preproc_dwi.bval`: Final b-values file.
-    * `*_desc-preproc_dwi.bvec`: Final corrected b-vectors file.
+    * `sub-01_desc-preproc_dwi.nii.gz`: Final preprocessed DWI image in original space.
+    * `sub-01_desc-preproc_dwi.bval`: Final b-values file.
+    * `sub-01_desc-preproc_dwi.bvec`: Final corrected b-vectors file.
   * `anat/`
-    * `*_desc-preproc_mask.nii.gz`: Final brain mask in original space.
+    * `sub-01_desc-preproc_mask.nii.gz`: Final brain mask in original space.
 </details>
 
 ### **Local Modelling**
@@ -106,23 +106,23 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `dwi/`
-    * `*_model-csd_param-afd-max_dwimap.nii.gz`: Maximum apparent fiber density (AFD) map.
-    * `*_model-csd_param-afd-sum_dwimap.nii.gz`: Sum of the AFD map.
-    * `*_model-csd_param-afd-tot_dwimap.nii.gz`: AFD total map.
-    * `*_model-csd_param-nufo_dwimap.nii.gz`: Number of fiber orientation map.
-    * `*_model-csd_param-peaks_dwimap.nii.gz`: fODF peaks.
-    * `*_model-csd_param-sh_dwimap.nii.gz`: fODF coefficients.
-    * `*_model-qball_param-apower_dwimap.nii.gz`: Anisotropic power map.
-    * `*_model-qball_param-gfa_dwimap.nii.gz`: Generalized fractional anisotropy map.
-    * `*_model-qball_param-sh_dwimap.nii.gz`: Spherical harmonics coefficients.
-    * `*_model-tensor_param-ad_dwimap.nii.gz`: Axial Diffusivity map.
-    * `*_model-tensor_param-fa_dwimap.nii.gz`: Fractional Anisotropy map.
-    * `*_model-tensor_param-ga_dwimap.nii.gz`: Geodesic Anisometry map.
-    * `*_model-tensor_param-md_dwimap.nii.gz`: Mean Diffusivity map.
-    * `*_model-tensor_param-mode_dwimap.nii.gz`: Mode map.
-    * `*_model-tensor_param-rd_dwimap.nii.gz`: Radial Diffusivity map.
-    * `*_model-tensor_param-rgb_dwimap.nii.gz`: RGB map.
-    * `*_model-tensor_param-tensor_dwimap.nii.gz`: Tensor map.
+    * `sub-01_model-csd_param-afd-max_dwimap.nii.gz`: Maximum apparent fiber density (AFD) map.
+    * `sub-01_model-csd_param-afd-sum_dwimap.nii.gz`: Sum of the AFD map.
+    * `sub-01_model-csd_param-afd-tot_dwimap.nii.gz`: AFD total map.
+    * `sub-01_model-csd_param-nufo_dwimap.nii.gz`: Number of fiber orientation map.
+    * `sub-01_model-csd_param-peaks_dwimap.nii.gz`: fODF peaks.
+    * `sub-01_model-csd_param-sh_dwimap.nii.gz`: fODF coefficients.
+    * `sub-01_model-qball_param-apower_dwimap.nii.gz`: Anisotropic power map.
+    * `sub-01_model-qball_param-gfa_dwimap.nii.gz`: Generalized fractional anisotropy map.
+    * `sub-01_model-qball_param-sh_dwimap.nii.gz`: Spherical harmonics coefficients.
+    * `sub-01_model-tensor_param-ad_dwimap.nii.gz`: Axial Diffusivity map.
+    * `sub-01_model-tensor_param-fa_dwimap.nii.gz`: Fractional Anisotropy map.
+    * `sub-01_model-tensor_param-ga_dwimap.nii.gz`: Geodesic Anisometry map.
+    * `sub-01_model-tensor_param-md_dwimap.nii.gz`: Mean Diffusivity map.
+    * `sub-01_model-tensor_param-mode_dwimap.nii.gz`: Mode map.
+    * `sub-01_model-tensor_param-rd_dwimap.nii.gz`: Radial Diffusivity map.
+    * `sub-01_model-tensor_param-rgb_dwimap.nii.gz`: RGB map.
+    * `sub-01_model-tensor_param-tensor_dwimap.nii.gz`: Tensor map.
 </details>
 
 ### **Registration**
@@ -131,9 +131,9 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `anat/`
-    * `*_from-dwi_to-Allen_warp.nii.gz`: Non-linear transform from diffusion space to Allen Mouse Brain Atlas space.
-    * `*_from-Allen_to-dwi_affine.mat`: Affine transform from Allen Mouse Brain Atlas space space to diffusion space.
-    * `*_from-Allen_to-dwi_warp.nii.gz`: Non-linear transform from Allen Mouse Brain Atlas space to diffusion space.
+    * `sub-01_from-dwi_to-Allen_warp.nii.gz`: Non-linear transform from diffusion space to Allen Mouse Brain Atlas space.
+    * `sub-01_from-Allen_to-dwi_affine.mat`: Affine transform from Allen Mouse Brain Atlas space space to diffusion space.
+    * `sub-01_from-Allen_to-dwi_warp.nii.gz`: Non-linear transform from Allen Mouse Brain Atlas space to diffusion space.
 </details>
 
 ### **Segmentation**
@@ -143,9 +143,9 @@ In addition to the output files described below, you will also find **sidecar JS
 
   * `anat/`
     * `mask/`: Folder containing all the masks extracted from the Allen Mouse Brain Atlas determinated in the nextflow.config in diffusion space, along with a .csv file.
-    * `*_atlas-Allen_2PE.nii.gz`: Allen Mouse Brain Atlas in the native space.
-    * `*_atlas-Allen_desc-ANO_dseg.nii.gz`: Allen Mouse Brain Atlas segmented in the native space.
-    * `*_atlas-Allen_desc-ANOLR_dseg.nii.gz`: Allen Mouse Brain Atlas segmented splitted left/right in the native space.
+    * `sub-01_atlas-Allen_2PE.nii.gz`: Allen Mouse Brain Atlas in the native space.
+    * `sub-01_atlas-Allen_desc-ANO_dseg.nii.gz`: Allen Mouse Brain Atlas segmented in the native space.
+    * `sub-01_atlas-Allen_desc-ANOLR_dseg.nii.gz`: Allen Mouse Brain Atlas segmented splitted left/right in the native space.
 </details>
 
 ### **Tractography**
@@ -154,10 +154,10 @@ In addition to the output files described below, you will also find **sidecar JS
   <summary>Output files</summary>
 
   * `anat/`
-    * `*_desc-seeding_mask.nii.gz`: Seeding mask for local tracking.
-    * `*_desc-tracking_mask.nii.gz`: Tracking mask for local tracking.
+    * `sub-01_desc-seeding_mask.nii.gz`: Seeding mask for local tracking.
+    * `sub-01_desc-tracking_mask.nii.gz`: Tracking mask for local tracking.
   * `dwi/`
-    * `*_desc-local_tracking.trk`: Whole-brain tractogram using local tractography.
+    * `sub-01_desc-local_tracking.trk`: Whole-brain tractogram using local tractography.
 </details>
 
 ### **MultiQC**
@@ -179,7 +179,7 @@ Within each subject folder, you will find subject-specific HTML reports. Those w
   <summary>Output files</summary>
 
   * `stats/`
-    * `*__stats.json`: Mean and SD for AD, FA, MD and RD for each regions determinated in the nextflow.config
+    * `sub-01__stats.json`: Mean and SD for AD, FA, MD and RD for each regions determinated in the nextflow.config
 </details>
 
 ### **Pipeline information**
@@ -205,7 +205,19 @@ The pipeline creates 2 folders: `results_mouse` and `work`. The files in `result
 <Tabs>
   <TabItem label="Command">
     ```bash
-   cp -rL results_mouse NEW_PATH/results
+   cp -rL results_mouse NEW_PATH/results_mouse
+    ```
+  </TabItem>
+</Tabs>
+</details>
+
+<details markdown="1">
+<summary>On HPC</summary>
+<Tabs>
+  <TabItem label="Command">
+    ```bash
+  tar cvzfh /HPC_PATH/results_mouse.tar.gz /HPC_PATH/results_mouse
+   rsync -rL login@adress:/HPC_PATH/results_mouse.tar.gz NEW_PATH/results_mouse.tar.gz
     ```
   </TabItem>
 </Tabs>
