@@ -27,21 +27,3 @@ The [BIDS (Brain Imaging Data Structure)](https://bids-specification.readthedocs
 
 `nf-mouse` will soon be BIDS compatible.
 
-### **If you want to use your own mask**
-
-`nf-mouse` allows to extract the brain (step 3) with a nnUNet algorithm. If you don't want to use this method, you also can provide a mask, but the input structure should look like this:
-
-<FileTree>
-  * input\_directory
-    * sub-01
-      * sub-01\_dwi.bval
-      * sub-01\_dwi.bvec
-      * sub-01\_dwi.nii.gz
-      * sub-01\_mask.nii.gz
-    * sub-02
-      * sub-02\_dwi.bval
-      * sub-02\_dwi.bvec
-      * sub-02\_dwi.nii.gz
-      * sub-02\_mask.nii.gz
-</FileTree>
-
